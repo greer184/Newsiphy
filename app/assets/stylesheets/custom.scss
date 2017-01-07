@@ -1,0 +1,30 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* Universal */
+
+body {
+  padding-top: 50px;
+  background-color: #d3d3d3;
+}
+
+/* Header */
+
+header { 
+  background-color: #b22222;
+}
+
+#header-item a {
+  color: #d3d3d3;
+  &:hover {
+    background-color: #d3d3d3;
+    color: #b22222;
+  }
+}
+
+#title {
+  float: left;
+  font-size: 1.5em;
+  margin: 13px 0px;
+  color: #d3d3d3;
+}

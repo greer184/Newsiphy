@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'static/home'
-  get 'static/about'
-  root 'application#hello'
+  root 'static#home'
+  get '/home', to: 'static#help'
+  get '/about', to: 'static#about'
 end
