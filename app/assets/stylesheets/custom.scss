@@ -28,3 +28,33 @@ header {
   margin: 13px 0px;
   color: #d3d3d3;
 }
+
+/* Homepage */
+
+#home {
+  text-align: center;
+  color: #b22222;
+  font-style: italic;
+  padding-bottom: 4px;
+}
+
+#home-descript {
+  text-align: center;
+  padding-bottom: 4px;
+}
+
+#home-button {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  & .btn {
+    background-color: #b22222;
+    color: #d3d3d3;
+    &:hover {
+      background-color: #d3d3d3;
+      color: #b22222;
+    }
+  }
+}
