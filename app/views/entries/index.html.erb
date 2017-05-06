@@ -1,0 +1,12 @@
+<div class="center jumbotron">
+  <p>Here are today's top stories:</p>
+  <div class="container">
+    <% @entries.each do |entry| %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <%= link_to entry.title, entry.url %> - <i> published <%= time_ago_in_words(entry.published) %> ago.</i>
+	</div>
+      </div>
+    <% end %>
+  </div>
+</div>
