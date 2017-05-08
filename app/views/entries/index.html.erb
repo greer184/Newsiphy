@@ -1,12 +1,20 @@
 <div class="center jumbotron">
   <p>Here are today's top stories:</p>
   <div class="container">
+    <% @entries.order! 'score DESC' %>
     <% @entries.each do |entry| %>
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <%= link_to entry.title, entry.url %> - <i> published <%= time_ago_in_words(entry.published) %> ago.</i>
-	</div>
-      </div>
+      <% if (entry.published != nil) then %>
+        <div class="panel panel-default">
+          <div class="panel-body">
+	    <div class="title">
+            <%= link_to entry.title, entry.url %> - <i> published <%= time_ago_in_words(entry.published) %> ago.</i>
+	    </div>
+	    <div class="score">
+	      <%= entry.score %>
+	    </div>
+	  </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

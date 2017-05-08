@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506190615) do
+ActiveRecord::Schema.define(version: 20170508203244) do
 
   create_table "entries", force: :cascade do |t|
     t.string   "title"
@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 20170506190615) do
     t.string   "url"
     t.string   "author"
     t.integer  "feed_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.float    "score",      default: 5.0
   end
 
   create_table "feeds", force: :cascade do |t|
