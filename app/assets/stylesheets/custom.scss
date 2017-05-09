@@ -8,6 +8,11 @@ body {
   background-color: #d3d3d3;
 }
 
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
 /* Header */
 
 header { 
@@ -56,4 +61,15 @@ header {
       color: #b22222;
     }
   }
+}
+
+/* Errors */
+
+#form_errors {
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 30px 0;
+    color: red;
+  } 
 }
