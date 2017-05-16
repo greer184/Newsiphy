@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'sessions/new'
+
   # Feed Management
   resources :feeds do
   end
@@ -16,4 +18,10 @@ Rails.application.routes.draw do
   # User Management
   get '/signup', to: 'users#new'
   resources :users
+
+  # Session Management
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  
 end
