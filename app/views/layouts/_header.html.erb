@@ -10,8 +10,13 @@
 	<li id="header-item"><%= link_to "Home", root_path %></li>
 	<li id="header-item"><%= link_to "About", about_path %></li>
 	<li id="header-item"><%= link_to "Curation", curation_path %></li>
-	<li id="header-item"><%= link_to "Sign up", signup_path %></li>
-	<li id="header-item"><%= link_to "Login", login_path %></li>
+        <% if logged_in? %>
+          <li id="header-item"><%= link_to "Logout", logout_path, 
+				   method: :delete %></li> 
+        <% else %>
+	  <li id="header-item"><%= link_to "Sign up", signup_path %></li>
+	  <li id="header-item"><%= link_to "Login", login_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
