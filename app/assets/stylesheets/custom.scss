@@ -73,3 +73,18 @@ header {
     color: red;
   } 
 }
+
+/* Forms */
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 5px;
+  span {
+    margin-left: 25px;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
