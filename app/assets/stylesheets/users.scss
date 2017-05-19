@@ -1,3 +1,8 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.user {
+  list-style: none;
+  margin: 0;
+  li {
+    padding: 10px 0;
+    border-bottom: 1px solid #000000;
+  } 
+}

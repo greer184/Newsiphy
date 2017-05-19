@@ -2,6 +2,7 @@
   <p>Here are today's top stories:</p>
   <div class="container">
     <% @entries.order! 'score DESC' %>
+    <%= will_paginate %>
     <% @entries.each do |entry| %>
       <% if (entry.published != nil) then %>
         <div class="panel panel-default">
@@ -16,5 +17,6 @@
         </div>
       <% end %>
     <% end %>
+    <%= will_paginate %>
   </div>
 </div>
