@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
+      login @user
       flash[:success] = "You have successfully created a rVerify account!"
       redirect_to root_path
     else
