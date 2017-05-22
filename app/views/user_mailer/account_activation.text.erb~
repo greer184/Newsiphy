@@ -1,4 +1,0 @@
-<%= @user.name %>, click on link to complete activation:
-
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token, 
-                                                    email: @user.email) %>
