@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'sessions/new'
-
   # Feed Management
   resources :feeds do
   end
@@ -26,5 +24,8 @@ Rails.application.routes.draw do
 
   # Account Activation
   resources :account_activations, only: [:edit]
+
+  # Password Resets
+  resources :password_resets, only: [:new, :create, :edit, :update]
   
 end

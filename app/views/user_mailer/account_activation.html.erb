@@ -1,5 +1,5 @@
 <h3>Account Activation</h3>
 
-<p><%= @user.name %>, click on link to activate account: <p>
+<p><%= @user.name %>, click on link to activate account: </p>
 <%= link_to "Activate", edit_account_activation_url(@user.activation_token, 
                                                     email: @user.email) %>
