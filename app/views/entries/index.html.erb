@@ -1,6 +1,7 @@
 <div class="center jumbotron">
   <p>Here are today's top stories:</p>
   <div class="container">
+    <% @entries.order! 'published DESC' %>
     <% @entries.order! 'score DESC' %>
     <%= will_paginate %>
     <% @entries.each do |entry| %>
