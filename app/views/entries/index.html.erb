@@ -1,7 +1,6 @@
 <div class="center jumbotron">
   <p>Here are today's top stories:</p>
   <div class="container">
-    <% @entries.order! 'published DESC' %>
     <% @entries.order! 'score DESC' %>
     <%= will_paginate %>
     <% @entries.each do |entry| %>
@@ -9,7 +8,16 @@
         <div class="panel panel-default">
           <div class="panel-body">
 	    <div class="title">
-            <%= link_to entry.title, entry.url %> - <i> published <%= time_ago_in_words(entry.published) %> ago.</i>
+              <%= link_to entry.title, entry.url %> - 
+	      <i> published <%= time_ago_in_words(entry.published) %> ago.</i>
+	      <% if logged_in? %>
+	        <% if already_rated?(entry, current_user) %>
+		  <%= link_to "Adjust Rating", 
+		      edit_rating_path(my_rating(entry, current_user)) %>
+		<% else %>
+	          <%= link_to "Rate", new_rating_path(:entry => entry.id) %>
+		<% end %>
+	      <% end %>
 	    </div>
 	    <div class="score">
 	      <%= entry.score %>

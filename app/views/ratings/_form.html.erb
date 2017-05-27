@@ -1,0 +1,10 @@
+<%= form_for(@rating) do |f| %>
+  <% menu = [] %>
+  <% 11.times do |i| %>
+    <% menu.push([i, i.to_s]) %>
+  <% end %>
+  <br>
+  <%= f.select :score, menu %>
+  <br><br>
+  <%= f.submit "Submit Rating", class: "btn btn-primary" %>
+<% end %>
