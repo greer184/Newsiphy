@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class StaticControllerTest < ActionDispatch::IntegrationTest
- 
-  test "about page available" do
-    get static_about_url
+class StaticControllerTest < ActionDispatch::IntegrationTest 
+
+  test "should get about" do
+    get about_url
     assert_response :success
   end
 
-  test "curation page available" do
-    get static_curation_url
+  test "should get curation" do
+    get curation_url
     assert_response :success
   end
 
