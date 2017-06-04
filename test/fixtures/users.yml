@@ -3,9 +3,14 @@
 one:
   name: 420blazing
   email: whatsup@newsiphy.com
-  password_digest: qwertyuiop
+  password_digest: <%= User.digest('qwertyuiop') %>
 
 two:
   name: MyString
   email: dreaming@newsiphy.com
-  password_digest: qwertyuiop
+  password_digest: <%= User.digest('qwertyuiop') %>
+
+william:
+  name: william
+  email: wtg123@newsiphy.com
+  password_digest: <%= User.digest('imightjustbeagod') %>
