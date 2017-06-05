@@ -1,4 +1,4 @@
-task update_feeds: => :environment do
+task :update_feeds => :environment do
 
   Feed.all.each do |feed|
     content = Feedjira::Feed.fetch_and_parse feed.url
