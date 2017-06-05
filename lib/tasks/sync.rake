@@ -1,5 +1,6 @@
 namespace :sync do
-  task add_feeds: [:environment] do
+  task update_feeds: [:environment] do
+
     Feed.all.each do |feed|
       content = Feedjira::Feed.fetch_and_parse feed.url
       content.entries.each do |entry|
@@ -9,9 +10,7 @@ namespace :sync do
 	end
       end
     end
-  end
 
-  task remove_feeds: [:environment] do
     entries = Entry.all
     entries.order! 'published DESC'
     limit = 1
@@ -24,6 +23,7 @@ namespace :sync do
       end
       limit += 1
     end
+
   end
 end
 
