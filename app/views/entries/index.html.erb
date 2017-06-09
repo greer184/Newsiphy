@@ -1,8 +1,10 @@
 <div class="center jumbotron">
-  <p>Here are today's top stories:</p>
+  <p>News that transcends opinion</p>
+  <div class="pager">
+    <%= will_paginate %>
+  </div>
   <div class="container">
     <% @entries.order! 'score DESC' %>
-    <%= will_paginate %>
     <% @entries.each do |entry| %>
       <% if (entry.published != nil) then %>
         <div class="panel panel-default">
@@ -25,7 +27,9 @@
 	  </div>
         </div>
       <% end %>
-    <% end %>
+    <% end %> 
+  </div>
+  <div class="pager">
     <%= will_paginate %>
   </div>
 </div>

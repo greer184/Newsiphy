@@ -4,8 +4,13 @@
 /* Universal */
 
 body {
-  padding-top: 50px;
-  background-color: #d3d3d3;
+  p, h3 {
+    font-family: "Futura", sans-serif;
+  }
+  padding-top: 20px;
+  .container {
+    padding: 0px;
+  }
 }
 
 ul {
@@ -29,38 +34,25 @@ header {
 
 #title {
   font-size: 1.5em;
-  margin: 15px;
+  margin: 15px 0px;
   color: #d3d3d3;
 }
 
 /* Homepage */
 
-#home {
-  text-align: center;
-  color: #b22222;
-  font-style: italic;
-  padding-bottom: 4px;
-}
-
-#home-descript {
-  text-align: center;
-  padding-bottom: 4px;
-}
-
-#home-button {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  & .btn {
-    background-color: #b22222;
-    color: #d3d3d3;
-    &:hover {
-      background-color: #d3d3d3;
-      color: #b22222;
-    }
+.jumbotron {
+  background-color: #d3d3d3;
+  p {
+    text-align: center;
   }
+  .pager {
+    align: center;
+  }
+}
+
+.panel-body {
+  font-size: 1.1em;
+  background-color: #ffeeff;
 }
 
 /* Errors */
