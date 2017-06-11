@@ -1,35 +1,34 @@
 <div class="center jumbotron">
-  <p>News that transcends opinion</p>
-  <div class="pager">
-    <%= will_paginate %>
-  </div>
-  <div class="container">
-    <% @entries.order! 'score DESC' %>
-    <% @entries.each do |entry| %>
-      <% if (entry.published != nil) then %>
-        <div class="panel panel-default">
-          <div class="panel-body">
-	    <div class="title">
-              <%= link_to entry.title, entry.url %> - 
-	      <i> published <%= time_ago_in_words(entry.published) %> ago.</i>
-	      <% if logged_in? %>
-	        <% if already_rated?(entry, current_user) %>
-		  <%= link_to "Adjust Rating", 
+    <h1>Change the Narrative</h1>
+    <p>The top new stories as curated by your peers through our Consensus Engine. Replace fake news with stories that don't ignore the facts and don't forget what is important. Start reading quality news below or take control and become a curator by signing up today.</p>
+</div>
+<div class="container">
+  <% @entries.order! 'score DESC' %>
+  <% @entries.each do |entry| %>
+    <% if (entry.published != nil) then %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+	  <div class="title">
+            <%= link_to entry.title, entry.url %> - 
+	    <i> published <%= time_ago_in_words(entry.published) %> ago.</i>
+	    <% if logged_in? %>
+	      <% if already_rated?(entry, current_user) %>
+	        <%= link_to "Adjust Rating", 
 		      edit_rating_path(my_rating(entry, current_user)) %>
-		<% else %>
-	          <%= link_to "Rate", new_rating_path(:entry => entry.id) %>
-		<% end %>
-	      <% end %>
-	    </div>
-	    <div class="score">
-	      <%= entry.score.round(1) %>
-	    </div>
+	      <% else %>
+	        <%= link_to "Rate", new_rating_path(:entry => entry.id) %>
+              <% end %>
+	    <% end %>
 	  </div>
-        </div>
-      <% end %>
-    <% end %> 
-  </div>
-  <div class="pager">
+	  <div class="score">
+	    <%= entry.score.round(1) %>
+	  </div>
+	</div>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="pager"> 
     <%= will_paginate %>
   </div>
 </div>
+  

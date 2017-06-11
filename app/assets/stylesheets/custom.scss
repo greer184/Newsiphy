@@ -7,13 +7,16 @@ body {
   p, h3 {
     font-family: "Futura", sans-serif;
   }
-  padding-top: 20px;
+  padding-top: 40px;
   .container {
     padding: 0px;
   }
 }
 
 ul {
+  li {
+    font-family: "Futura", sans-serif;
+  }
   list-style: none;
   padding-left: 0;
 }
@@ -21,38 +24,45 @@ ul {
 /* Header */
 
 header { 
-  background-color: #b22222;
+  background-color: #dd0d0d;
 }
 
 #header-item a {
-  color: #d3d3d3;
+  color: #ffffff;
   &:hover {
-    background-color: #d3d3d3;
-    color: #b22222;
+    background-color: #ffffff;
+    color: #dd0d0d;
   }
 }
 
 #title {
   font-size: 1.5em;
   margin: 15px 0px;
-  color: #d3d3d3;
+  color: #ffffff;
 }
 
 /* Homepage */
 
 .jumbotron {
-  background-color: #d3d3d3;
-  p {
+  background-color: white;
+  margin: 0px;
+  p, h1 {
     text-align: center;
+    margin-bottom: 30px;
   }
-  .pager {
-    align: center;
+  p {
+    font-size: 1.1em;
   }
 }
 
 .panel-body {
+  font-family: "Futura", sans-serif;  
   font-size: 1.1em;
-  background-color: #ffeeff;
+  border: 5px solid #eeeeee;
+}
+
+.pager {
+  float: right;
 }
 
 /* Errors */
