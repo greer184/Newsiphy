@@ -13,9 +13,7 @@
         <% if logged_in? %>
 	  <li id="header-item"><%= link_to "Edit Account", 
 				   edit_user_path(current_user) %></li>
-	  <% if current_user.admin? %>
-	    <li id="header-item"><%= link_to "Users", users_path %></li>
-	  <% end %>
+	  <li id="header-item"><%= link_to "Users", users_path %></li>
           <li id="header-item"><%= link_to "Logout", logout_path, 
 				   method: :delete %></li>	  
         <% else %>
