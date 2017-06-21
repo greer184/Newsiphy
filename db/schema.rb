@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170526030608) do
+ActiveRecord::Schema.define(version: 20170621022306) do
 
   create_table "entries", force: :cascade do |t|
     t.string   "title"
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 20170526030608) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "remember_digest"
     t.boolean  "admin"
     t.string   "activation_digest"
@@ -55,7 +55,10 @@ ActiveRecord::Schema.define(version: 20170526030608) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.float    "voting_power",      default: 5.0
+    t.float    "consistency",       default: 0.0
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["name"], name: "index_users_on_name", unique: true
   end
 
 end

@@ -12,6 +12,13 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
   end
 
+  test "should reject duplicate username" do
+    user2 = @user.dup
+    user2.name = @user.name
+    @user.save
+    assert_not user2.valid?
+  end
+
   test "should reject if name not present" do
     @user.name = "    "
     assert_not @user.valid?
