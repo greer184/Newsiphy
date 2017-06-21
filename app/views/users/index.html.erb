@@ -1,10 +1,17 @@
-<h3>All users</h3>
+<h3>Users by Voting Power</h3>
+<% @users.order! 'voting_power DESC' %>
+<ul class="curation">
 <% @users.each do |user| %>
   <% if user.activated? %>
-    <p><%= user.name %></p>
-    <% if !current_user?(user) && current_user.admin? %>
-       | <%= link_to "delete", user, method: :delete, 
-	                             data: { confirm: "Are you sure?" } %>  
-    <% end %>
+    <li>
+    <div class="listname">
+      <%= user.name %>
+      <% if !current_user?(user) && current_user.admin? %>
+         | <%= link_to "delete", user, method: :delete, 
+	                               data: { confirm: "Are you sure?" } %>  
+      <% end %>
+    </div>
+    <div class="votingpower"><%= user.voting_power %></div>
+    </li>
   <% end %>
 <% end %>
