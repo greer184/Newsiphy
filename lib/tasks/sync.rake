@@ -18,8 +18,9 @@ namespace :sync do
       if limit <= 100
         puts limit
       else 
-        Entry.find(entry.id).destroy 
-        puts "destroyed"
+        entry = Entry.find(entry.id)
+        entry.allocate_rewards(entry.score)
+        entry.destroy
       end
       limit += 1
     end

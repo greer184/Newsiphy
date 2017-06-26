@@ -11,7 +11,8 @@
 	                               data: { confirm: "Are you sure?" } %>  
       <% end %>
     </div>
-    <div class="votingpower"><%= user.voting_power %></div>
+    <div class="votingpower"><%= user.voting_power.round(4) %></div>
     </li>
   <% end %>
 <% end %>
+<%= will_paginate %>

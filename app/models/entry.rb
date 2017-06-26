@@ -24,7 +24,7 @@ class Entry < ActiveRecord::Base
     # Power allocated for this round
     total_users = User.all.count
     total_feeds = Feed.all.count
-    power =  (total_users * 5) / (total_feeds * 1000)
+    power =  (total_users * 5).to_f / (total_feeds * 1000).to_f
 
     # Index values with related ids
     indexes = []
@@ -38,25 +38,32 @@ class Entry < ActiveRecord::Base
       difference = rating.score - score 
       consistency = 0.99 * user.consistency + 0.01 * difference 
       index = Math.exp(-(val**1.5/total_users)) / 
-              (difference**2 + (consistency - difference)**2 + 1)
+              (difference**2 + (consistency - difference)**2 + 1.0)
       indexes.append([user.id, index])
       total = total + index
       val = val + 1
       user.consistency = consistency
-    end
-
-    # Normalize the voting power
-    User.all.each do |user|
-      user.voting_power = user.voting_power * (total_user * 5) / 
-                          (total_users * 5 + power) 
+      user.save!
     end
 
     # Add respective new voting power
     indexes.each do |element|
       user = User.find(element[0])
       user.voting_power = user.voting_power + (element[1] / total) * power
+      user.save!
+    end
+
+    # Normalize the voting power
+    max = 0.0
+    User.all.each do |user|
+      max = max + user.voting_power
+    end 
+    
+    norm_factor = (5 * total_users) / max
+    User.all.each do |user|
+      user.voting_power = user.voting_power * norm_factor
+      user.save!
     end
    
   end
-
 end

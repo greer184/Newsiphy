@@ -16,8 +16,10 @@ task :update_feeds => :environment do
   entries.each do |entry|
     if limit <= 100
       puts limit
-    else 
-      Entry.find(entry.id).destroy 
+    else
+      entry = Entry.find(entry.id) 
+      entry.allocate_rewards(entry.score)
+      entry.destroy 
     end
     limit += 1
   end
