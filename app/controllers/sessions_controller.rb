@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
         login user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       else
+        user.send_activation_email
         flash[:warning] = "Complete account activation using email link"
       end
       redirect_to root_url
