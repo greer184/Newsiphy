@@ -48,6 +48,12 @@ class User < ApplicationRecord
     update_attribute(:activated_at, Time.zone.now)
   end
 
+  # Update activation digest
+  def update_activation_digest
+    self.activation_token = User.new_token
+    update_attribute(:activation_digest, User.digest(activation_token))
+  end
+
   # Send activation email
   def send_activation_email
     UserMailer.account_activation(self).deliver_now

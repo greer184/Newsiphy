@@ -5,11 +5,15 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
+    puts "###SSS"
+    puts user.id 
+    params[:session][:id] = user.id
     if user && user.authenticate(params[:session][:password])
       if user.activated?
         login user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      else
+      elsif !user.activated?
+        user.update_activation_digest
         user.send_activation_email
         flash[:warning] = "Complete account activation using email link"
       end
