@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreply@rverify.com'
+  default from: 'Newsiphy'
   layout 'mailer'
 end
