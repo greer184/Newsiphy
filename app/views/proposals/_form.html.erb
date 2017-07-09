@@ -1,0 +1,18 @@
+<%= form_for(@proposal) do |f| %>
+  <% menu = [
+     "Increase number of articles to 200",
+     "Add New York Times RSS Feed",
+     "Add Washington Post RSS Feed",
+     "Give praise to the top curator on home page",
+     "Design an actual logo for Newsiphy",
+     "Compile average rating for each news feed",
+     "Allow top 5 curators to each come up with proposal",
+     "Allow users to add profile pictures",
+     "Add a Trump picture to each Trump related article",
+     "Add a Russian flag to each Russia related article"                   
+  ] %>
+  <br>
+  <%= f.select :description, menu %>
+  <br><br>
+  <%= f.submit "Submit Vote", class: "btn btn-primary" %>
+<% end %>

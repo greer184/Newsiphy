@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
   # Feed Management
-  resources :feeds do
-  end
+  resources :feeds 
 
   # Entries Management
   get 'entries/index'
@@ -30,4 +29,8 @@ Rails.application.routes.draw do
   
   # Ratings Resources
   resources :ratings, only: [:new, :create, :edit, :update]
+
+   # Feed Management
+  resources :proposals
+
 end

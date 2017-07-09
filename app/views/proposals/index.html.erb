@@ -1,0 +1,27 @@
+<% if !current_user.nil? && current_user.admin? %>
+<h1>Proposals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @proposals.each do |proposal| %>
+      <tr>
+        <td><%= proposal.description %></td>
+        <td><%= link_to 'Edit', edit_proposal_path(proposal) %></td>
+        <td><%= link_to 'Destroy', proposal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Proposal', new_proposal_path %>
+<% else %>
+  <p>Page Unavailable</p>
+<% end %>
