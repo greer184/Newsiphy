@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 10 }, allow_nil: true
   has_many :ratings
+  has_one :proposal
 
   # Returns random token
   def User.new_token
