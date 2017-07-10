@@ -39,14 +39,16 @@ class ProposalsController < ApplicationController
     else
       flash[:warning] = "Vote was not correctly logged"
     end
+    redirect_to proposals_path
   end
 
   def update
-    if @proposal.update(feed_params)
+    if @proposal.update(proposal_params)
       flash[:success] = "Changes successfully made"
     else
       flash[:danger] = "Changes unable to be made"
     end
+    redirect_to proposals_path
   end
 
   def destroy

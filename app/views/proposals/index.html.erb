@@ -1,14 +1,22 @@
 <% if !current_user.nil? %>
   <h3>Current Proposals</h3>
   <br>
+  <div class="listname"><p><strong>Proposal</strong></p></div>  
+  <div class="votingpower"><p><strong>Voting</strong></p></div>
   <% @options.each do |op| %>
     <p>
-      <div class="listname"><%= op[0] %></div>  
-      <div class="votingpower"><%= op[1] %>%</div>
+      <div class="listname"><p><%= op[0] %></p></div>  
+      <div class="votingpower"><p><%= op[1] %>%</p></div>
     </p>
   <% end %> 
   <br>
-  <p><%= link_to 'Vote Now', new_proposal_path %></p>
+  <% if current_user.proposal.nil? %>
+    <p><%= link_to 'Vote Now', new_proposal_path %></p>
+  <% else %>
+    <p>
+      <%= link_to 'Change Vote', edit_proposal_path(current_user.proposal) %>
+    </p>
+  <% end %>
 <% else %>
   <p>Page Unavailable</p>
 <% end %>
