@@ -10,12 +10,17 @@
     </p>
   <% end %> 
   <br>
-  <% if current_user.proposal.nil? %>
-    <p><%= link_to 'Vote Now', new_proposal_path %></p>
-  <% else %>
-    <p>
+  <% if Time.now < @deadline %>
+    <p>Time Left: <%= time_ago_in_words(@deadline) %></p>
+    <% if current_user.proposal.nil? %>
+      <p><%= link_to 'Vote Now', new_proposal_path %></p>
+    <% else %>
+      <p>
       <%= link_to 'Change Vote', edit_proposal_path(current_user.proposal) %>
-    </p>
+      </p>
+    <% end %>
+  <% else %>
+    <p>Voting Has Closed</p>
   <% end %>
 <% else %>
   <p>Page Unavailable</p>

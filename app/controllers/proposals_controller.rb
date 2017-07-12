@@ -5,6 +5,11 @@ class ProposalsController < ApplicationController
     proposals = Proposal.all
     list = labels
     total = User.all.count * 5.0
+    if !proposals[0].nil?
+      @deadline = proposals[0].created_at + 24.hours
+    else
+      @deadline = Time.now + 24.hours
+    end
     @options = []
     list.each do |op|
       support = 0.0
@@ -63,7 +68,7 @@ class ProposalsController < ApplicationController
   end
 
   def labels
-    list = ["aardvark", "barnacle", "caterpillar", "dragonfly", "earwig"]
+    list = ["Continue Testing Website", "Push Out Product To Public"]
   end
 
   def proposal_params
