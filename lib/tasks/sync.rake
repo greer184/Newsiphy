@@ -26,5 +26,13 @@ namespace :sync do
     end
 
   end
+
+  task :clean_proposals => :environment do
+    proposals = Proposal.all
+    proposals.each do |prop|
+      prop.delete
+    end
+  end
+  
 end
 
