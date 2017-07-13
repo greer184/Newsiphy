@@ -1,5 +1,5 @@
-www# README
+# README
 
-This contains source code for Newsiphy website. [visit here](https://www.newsiphy.com)
+This contains source code for Newsiphy website. [visit here](www.newsiphy.com)
 
 
