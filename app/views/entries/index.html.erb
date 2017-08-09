@@ -8,20 +8,33 @@
     <% if (entry.published != nil) then %>
       <div class="panel panel-default">
         <div class="panel-body">
-	  <div class="title">
-            <%= link_to entry.title, entry.url %> - 
-	    <i> published <%= time_ago_in_words(entry.published) %> ago.</i>
+          <div class="picture">
+            <img src="<%= entry.content %>", style="width:200px;height:120px;">
+          </div>
+          <div class="information">
+	    <div class="info-element">
+	      <p><%= link_to entry.title, entry.url %></p>
+            </div>
+            <div class="info-element">
+	      <i> Published <%= time_ago_in_words(entry.published) %> ago</i>
+            </div>
+            <div class="info-element">
 	    <% if logged_in? %>
 	      <% if already_rated?(entry, current_user) %>
-	        <%= link_to "Adjust Rating", 
+	        <p>
+		  <%= link_to "Adjust Rating", 
 		      edit_rating_path(my_rating(entry, current_user)) %>
+		</p>
 	      <% else %>
-	        <%= link_to "Rate", new_rating_path(:entry => entry.id) %>
+	        <p>
+		  <%= link_to "Rate", new_rating_path(:entry => entry.id) %>
+		</p>
               <% end %>
 	    <% end %>
+            </div>
 	  </div>
 	  <div class="score">
-	    <%= entry.score.round(1) %>
+	    <p><%= entry.score.round(1) %></p>
 	  </div>
 	</div>
       </div>
