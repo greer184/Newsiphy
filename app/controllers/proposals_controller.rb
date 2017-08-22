@@ -6,9 +6,9 @@ class ProposalsController < ApplicationController
     list = labels
     total = User.all.count * 5.0
     if !proposals[0].nil?
-      @deadline = proposals[0].created_at + 24.hours
+      @deadline = proposals[0].created_at + 3.weeks
     else
-      @deadline = Time.now + 24.hours
+      @deadline = Time.now + 3.weeks
     end
     @options = []
     list.each do |op|
@@ -68,7 +68,8 @@ class ProposalsController < ApplicationController
   end
 
   def labels
-    list = ["Continue Testing Website", "Push Out Product To Public"]
+    list = ["Improve User Interface", "Improve Site Presence", 
+            "Add More Feeds", "Improve User Experience", "None Of The Above"]
   end
 
   def proposal_params
